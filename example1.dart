@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:turnero_v0/constants.dart';
-
 
 class Example1 extends StatefulWidget {
   Example1({Key? key}) : super(key: key);
@@ -9,14 +7,11 @@ class Example1 extends StatefulWidget {
 }
 
 class _Example1State extends State<Example1> {
-  
   // booleana que dispara la expansion del widget
   bool isExpanded = false;
-      
+
   @override
   Widget build(BuildContext context) {
-
-
     // funcion para obtener el tamano de pantalla
     Size displaySize(BuildContext context) {
       return MediaQuery.of(context).size;
@@ -29,22 +24,22 @@ class _Example1State extends State<Example1> {
     return Scaffold(
       // este boton dispara el evento
       floatingActionButton: FloatingActionButton(
-        mini: true,
+        // mini: true,
         onPressed: () {
           setState(() {
             // cuando tocamos el boton la booleana cambia y eso hace que se expanda o se contraiga
             isExpanded = !isExpanded;
           });
         },
-        backgroundColor: primaryColor,
+        backgroundColor: Colors.blue,
         child: Icon(Icons.add_circle),
       ),
-      backgroundColor: Colors.white10,
+      backgroundColor: Colors.white,
       body: Center(
         child: AnimatedContainer(
           // animatedContainer necesita si o si una duracion para la animacion
           duration: Duration(
-            milliseconds: 1000,
+            milliseconds: 200,
           ),
 
           // aca sucede la magia, decimos que si la booleana es verdadera el ancho y alto sera el mismo que el de la pantalla
@@ -56,7 +51,7 @@ class _Example1State extends State<Example1> {
             borderRadius: BorderRadius.circular(
               isExpanded ? 0 : 300,
             ),
-            color: secondaryColor,
+            color: isExpanded ? Colors.blueAccent : Colors.greenAccent,
           ),
         ),
       ),
