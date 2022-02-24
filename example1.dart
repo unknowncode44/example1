@@ -9,10 +9,13 @@ class Example1 extends StatefulWidget {
 }
 
 class _Example1State extends State<Example1> {
+  
+  // booleana que dispara la expansion del widget
+  bool isExpanded = false;
+      
   @override
   Widget build(BuildContext context) {
-    // booleana que dispara la expansion del widget
-    bool isExpanded = false;
+
 
     // funcion para obtener el tamano de pantalla
     Size displaySize(BuildContext context) {
